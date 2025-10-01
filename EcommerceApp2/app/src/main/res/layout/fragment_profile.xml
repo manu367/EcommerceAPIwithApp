@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:fillViewport="true"
+    tools:context=".fragement.ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="?attr/selectableItemBackground"
+        android:padding="16dp">
+
+        <!-- Profile Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="@drawable/bg_profile_header">
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/user_m"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_bg"
+                android:padding="4dp" />
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manu Pathak"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/tvUserEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="manu@example.com"
+                android:textSize="14sp"
+                android:textColor="#666"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Options Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Orders -->
+                <LinearLayout
+                    android:id="@+id/rowOrders"
+                    style="@style/ProfileRowStyle">
+                    <ImageView
+                        android:src="@drawable/cart"
+                        style="@style/ProfileRowIconStyle" />
+                    <TextView
+                        android:text="My Orders"
+                        style="@style/ProfileRowTextStyle" />
+                </LinearLayout>
+
+                <!-- Wishlist -->
+                <LinearLayout
+                    android:id="@+id/rowWishlist"
+                    style="@style/ProfileRowStyle">
+                    <ImageView
+                        android:src="@drawable/like"
+                        style="@style/ProfileRowIconStyle" />
+                    <TextView
+                        android:text="Wishlist"
+                        style="@style/ProfileRowTextStyle" />
+                </LinearLayout>
+
+                <!-- Address -->
+                <LinearLayout
+                    android:id="@+id/rowAddress"
+                    style="@style/ProfileRowStyle">
+                    <ImageView
+                        android:src="@drawable/address"
+                        style="@style/ProfileRowIconStyle" />
+                    <TextView
+                        android:text="Manage Address"
+                        style="@style/ProfileRowTextStyle" />
+                </LinearLayout>
+
+                <!-- Payment -->
+                <LinearLayout
+                    android:id="@+id/rowPayment"
+                    style="@style/ProfileRowStyle">
+                    <ImageView
+                        android:src="@drawable/payment"
+                        style="@style/ProfileRowIconStyle" />
+                    <TextView
+                        android:text="Payment Methods"
+                        style="@style/ProfileRowTextStyle" />
+                </LinearLayout>
+
+                <!-- Notifications -->
+                <LinearLayout
+                    android:id="@+id/rowNotifications"
+                    style="@style/ProfileRowStyle">
+                    <ImageView
+                        android:src="@drawable/notification"
+                        style="@style/ProfileRowIconStyle" />
+                    <TextView
+                        android:text="Notifications"
+                        style="@style/ProfileRowTextStyle" />
+                </LinearLayout>
+
+                <!-- Refer & Earn -->
+                <LinearLayout
+                    android:id="@+id/rowRefer"
+                    style="@style/ProfileRowStyle">
+                    <ImageView
+                        android:src="@drawable/page"
+                        style="@style/ProfileRowIconStyle" />
+                    <TextView
+                        android:text="Refer and Earn"
+                        style="@style/ProfileRowTextStyle" />
+                </LinearLayout>
+
+                <!-- Help & Support -->
+                <LinearLayout
+                    android:id="@+id/rowHelp"
+                    style="@style/ProfileRowStyle">
+                    <ImageView
+                        android:src="@drawable/help"
+                        style="@style/ProfileRowIconStyle" />
+                    <TextView
+                        android:text="Help and Support"
+                        style="@style/ProfileRowTextStyle" />
+                </LinearLayout>
+
+                <!-- Settings -->
+                <LinearLayout
+                    android:id="@+id/rowSettings"
+                    style="@style/ProfileRowStyle">
+                    <ImageView
+                        android:src="@drawable/setting"
+                        style="@style/ProfileRowIconStyle" />
+                    <TextView
+                        android:text="Settings"
+                        style="@style/ProfileRowTextStyle" />
+                </LinearLayout>
+
+                <!-- About Us -->
+                <LinearLayout
+                    android:id="@+id/rowAbout"
+                    style="@style/ProfileRowStyle">
+                    <ImageView
+                        android:src="@drawable/page"
+                        style="@style/ProfileRowIconStyle" />
+                    <TextView
+                        android:text="About Us"
+                        style="@style/ProfileRowTextStyle" />
+                </LinearLayout>
+
+                <!-- Logout -->
+                <LinearLayout
+                    android:id="@+id/rowLogout"
+                    style="@style/ProfileRowStyle">
+                    <ImageView
+                        android:src="@drawable/logout"
+                        style="@style/ProfileRowIconStyle" />
+                    <TextView
+                        android:text="Logout"
+                        style="@style/ProfileRowTextStyle" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+</ScrollView>

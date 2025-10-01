@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#33000000"> <!-- ripple color, semi-transparent black -->
+
+    <item>
+        <selector>
+            <!-- Pressed state -->
+            <item android:state_pressed="true">
+                <shape android:shape="rectangle">
+                    <solid android:color="#E0E0E0"/> <!-- highlight color on press -->
+                    <corners android:radius="8dp"/>
+                </shape>
+            </item>
+
+            <!-- Default state -->
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/white"/> <!-- normal color -->
+                    <corners android:radius="8dp"/>
+                </shape>
+            </item>
+        </selector>
+    </item>
+</ripple>
