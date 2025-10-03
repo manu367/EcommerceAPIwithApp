@@ -1,5 +1,6 @@
 package com.example.ecommerceapp.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,21 +18,23 @@ public class ImagePagerAdapter extends RecyclerView.Adapter<ImagePagerAdapter.Im
 
     private List<String> images;
 
-    public ImagePagerAdapter(List<String> images) {
+    Context context;
+    public ImagePagerAdapter(List<String> images, Context context) {
         this.images = images;
+        this.context=context;
     }
 
     @NonNull
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
+        View view = LayoutInflater.from(context)
                 .inflate(R.layout.item_image, parent, false);
         return new ImageViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        Glide.with(holder.imageView.getContext())
+        Glide.with(context)
                 .load(images.get(position))
                 .into(holder.imageView);
     }

@@ -179,7 +179,7 @@ public class HomeFragment extends Fragment {
     private void productViewactivity(){
         Intent intent = new Intent(getContext(), ProductViewActivity.class);
         startActivity(intent);
-        requireActivity().overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
+        //requireActivity().overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
     }
 
     @Override
