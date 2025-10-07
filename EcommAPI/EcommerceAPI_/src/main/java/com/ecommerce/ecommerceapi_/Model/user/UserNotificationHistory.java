@@ -1,28 +1,29 @@
 package com.ecommerce.ecommerceapi_.Model.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
+import jakarta.persistence.*;
+import lombok.*;
 import java.util.Date;
 
 @Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Builder
 public class UserNotificationHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
+
     private String title;
     private String message;
-    private boolean read;
+    @Column(name = "is_read")
+    private boolean isread;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date readDate;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date sendDate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserModel user;
 }

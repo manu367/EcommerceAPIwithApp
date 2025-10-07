@@ -14,7 +14,9 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.ecommerceapp.R;
 import com.example.ecommerceapp.activity.OnProductClickListener;
@@ -26,13 +28,17 @@ import com.example.ecommerceapp.adapter.CategoryWiseProductAdapter;
 import com.example.ecommerceapp.model.Category;
 import com.example.ecommerceapp.model.CategoryWIseProduct;
 import com.example.ecommerceapp.model.Product;
+import com.razorpay.Checkout;
+import com.razorpay.PaymentResultListener;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements PaymentResultListener {
 
     private ViewPager2 viewPager2;
     private Handler handler;
@@ -49,6 +55,14 @@ public class HomeFragment extends Fragment {
         recyclerCategories=view.findViewById(R.id.recyclerCategories);
         categoryShow=view.findViewById(R.id.categoryShow);
         LinearLayout linearLayout=view.findViewById(R.id.search_bar_click);
+        Button payment=view.findViewById(R.id.payment);
+        Checkout.preload(requireContext());
+        payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startPayment();
+            }
+        });
 
         view.findViewById(R.id.search_edit_text).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +90,25 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
+
+    private void startPayment() {
+        Checkout checkout = new Checkout();
+        checkout.setKeyID("rzp_live_RQ6qY4PjnzBr5G");
+        try{
+            JSONObject options = new JSONObject();
+            options.put("name", "Manu’s Store");
+            options.put("description", "Test Payment");
+            options.put("currency", "INR");
+            options.put("amount", "50000"); // amount in paise -> Rs 500
+            options.put("prefill.email", "test@razorpay.com");
+            options.put("prefill.contact", "9876543210");
+
+            checkout.open(requireActivity(), options);
+        }catch (Exception e){
+            Toast.makeText(requireContext(), "Error in payment: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
 
     private void createCategory(RecyclerView recyclerCategories){
         List<Category> categoryList = new ArrayList<>();
@@ -188,5 +221,15 @@ public class HomeFragment extends Fragment {
         if (handler != null && runnable != null) {
             handler.removeCallbacks(runnable);
         }
+    }
+
+    @Override
+    public void onPaymentSuccess(String s) {
+        Toast.makeText(requireContext(), "Payment Success: " + s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPaymentError(int i, String s) {
+        Toast.makeText(requireContext(), "Payment Success: " + s, Toast.LENGTH_SHORT).show();
     }
 }

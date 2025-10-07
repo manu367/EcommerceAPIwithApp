@@ -1,13 +1,8 @@
 package com.ecommerce.ecommerceapi_.Model.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -18,13 +13,13 @@ public class UserLoginHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long userId;
+
     private String ipAddress;
     private String device;
     private String browser;
     private String location;
-    private java.time.LocalDateTime loginTime;
-    private java.time.LocalDateTime logoutTime;
+    private LocalDateTime loginTime;
+    private LocalDateTime logoutTime;
     private Boolean successful;
     private String failureReason;
     private String sessionId;
@@ -32,4 +27,8 @@ public class UserLoginHistory {
     private String authMethod;
     private String userAgent;
     private String locationAccuracy;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserModel user;
 }

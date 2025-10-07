@@ -1,9 +1,7 @@
 package com.ecommerce.ecommerceapi_.Model.coupen;
 
-import com.ecommerce.ecommerceapi_.Model.user.UserCouponsModel;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import com.ecommerce.ecommerceapi_.Model.user.UserModel;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,10 +12,13 @@ import lombok.NoArgsConstructor;
 @Data
 public class CoupenModel {
     @Id
-    Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String coupencode;
     private boolean active;
 
     @ManyToOne
-    UserCouponsModel coupen;
+    @JoinColumn(name = "user_id")
+    private UserModel user;
 }

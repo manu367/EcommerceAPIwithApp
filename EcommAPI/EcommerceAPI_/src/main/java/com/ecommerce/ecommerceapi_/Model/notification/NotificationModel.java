@@ -1,13 +1,19 @@
 package com.ecommerce.ecommerceapi_.Model.notification;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.ecommerce.ecommerceapi_.Model.user.UserModel;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 public class NotificationModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
+
+    private String message;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserModel user;
 }
