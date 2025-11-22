@@ -2,6 +2,8 @@
 A complete ***E-Commerce System*** built with a modern full-stack architecture using **Android (Frontend App)**, **React.js (Admin Panel)**, **Spring Boot (Backend)**, and **MySQL (Database)**.
 This project demonstrates a robust, scalable, and real-world ready e-commerce ecosystem covering customer shopping experience, admin product management, and secure backend APIs.
 
+#Extra fetaures is that i am enabled GenAi featuresbthat help to purshase modals based cloths and also virtual wold clotheing review panels and suggestions best of the proeuct
+
 ## Tech Stack OverView
 <table style="width: 80%; margin: 30px auto; border-collapse: collapse; background-color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden;">
     <thead style="background-color: #007bff; color: white;">
